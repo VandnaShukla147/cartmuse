@@ -1,31 +1,12 @@
-/* Full-page animated gradient that stays BEHIND the app */
 #app-gradient-bg {
   position: fixed;
   inset: 0;
-  z-index: -1;               /* behind everything */
-  pointer-events: none;      /* never intercept clicks */
+  z-index: -1;
+  pointer-events: none;
   background:
-    radial-gradient(40% 35% at 15% 10%, rgba(255,255,255,.55) 0%, rgba(255,255,255,0) 60%),
-    radial-gradient(30% 25% at 85% 90%, rgba(255,255,255,.35) 0%, rgba(255,255,255,0) 70%),
-    linear-gradient(-45deg, #f6d365, #fda085, #a1c4fd, #c2e9fb);
+    radial-gradient(40% 35% at 15% 10%, rgba(255,255,255,.45) 0%, rgba(255,255,255,0) 70%),  /* gentle white highlight */
+    radial-gradient(35% 40% at 85% 85%, rgba(255,255,198,.35) 0%, rgba(255,255,255,0) 80%),   /* soft yellow accent */
+    linear-gradient(-45deg, #a8e063, #f6d365, #fae29c, #eafaf1); /* greens & mango yellow */
   background-size: 400% 400%;
   animation: gradientAnimation 18s ease infinite;
-}
-
-@keyframes gradientAnimation {
-  0%   { background-position: 0% 50%, 0% 50%,   0% 50%; }
-  50%  { background-position: 100% 50%, 100% 50%, 100% 50%; }
-  100% { background-position: 0% 50%, 0% 50%,   0% 50%; }
-}
-
-/* Keep your app layout exactly the same */
-.app-shell {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-/* Let main grow, footer stick to bottom naturally */
-.content-wrap {
-  flex: 1 0 auto;
 }

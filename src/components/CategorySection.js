@@ -1,5 +1,6 @@
 // src/components/CategorySection.js
 import React from "react";
+import { motion } from "framer-motion";
 
 function CategorySection() {
   const categories = [
@@ -18,27 +19,33 @@ function CategorySection() {
 
       <div className="row g-4 justify-content-center">
         {categories.map((cat, i) => (
-          <div className="col-12 col-sm-6 col-md-4 col-lg-3" key={i}>
+          <motion.div
+            className="col-6 col-md-3"
+            key={i}
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.6, delay: i * 0.15 }}
+          >
             <div
               style={{
                 backgroundImage: `url(${cat.img})`,
                 backgroundSize: "cover",
                 backgroundPosition: "center",
-                borderRadius: "20px",
-                height: "240px",
+                borderRadius: "25px",
+                height: "280px",
                 position: "relative",
-                boxShadow: "0 8px 30px rgba(0,0,0,0.15)",
+                boxShadow: "0 10px 40px rgba(0,0,0,0.2)",
                 overflow: "hidden",
-                transition: "transform 0.3s ease, box-shadow 0.3s ease",
               }}
-              className="category-box"
             >
-              {/* Overlay */}
+              {/* Dark overlay */}
               <div
                 style={{
                   position: "absolute",
                   inset: 0,
-                  background: "linear-gradient(to top, rgba(0,0,0,0.65), rgba(0,0,0,0.2))",
+                  background:
+                    "linear-gradient(to top, rgba(0,0,0,0.6), rgba(0,0,0,0.15))",
                 }}
               ></div>
 
@@ -46,7 +53,7 @@ function CategorySection() {
               <div
                 style={{
                   position: "absolute",
-                  bottom: "15px",
+                  bottom: "20px",
                   left: "15px",
                   color: "white",
                   textAlign: "left",
@@ -57,7 +64,7 @@ function CategorySection() {
                 <span
                   style={{
                     background: "rgba(255,255,255,0.2)",
-                    padding: "4px 10px",
+                    padding: "4px 1px",
                     borderRadius: "12px",
                     fontSize: "0.8rem",
                   }}
@@ -66,7 +73,7 @@ function CategorySection() {
                 </span>
               </div>
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
     </section>

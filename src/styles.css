@@ -3,8 +3,9 @@
    ============================================ */
 
 /* CSS Variables */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap');
 
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 :root {
   --primary-gradient: linear-gradient(135deg, #a8e063 0%, #f6d365 100%); /* yellow-green theme */
   --success-gradient: linear-gradient(135deg, #56ab2f 0%, #a8e063 100%);
@@ -23,7 +24,7 @@
 }
 
 body {
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Inter', sans-serif;
   background: linear-gradient(to bottom, #ffffff 0%, #f8f9fa 100%);
   color: #2d3436;
   overflow-x: hidden;
@@ -39,7 +40,8 @@ body {
    NAVBAR STYLES
    ============================================ */
 .navbar-clean {
-  background: var(--primary-gradient) !important;
+  background: linear-gradient(135deg, #a8e063 0%, #56ab2f 100%) !important;
+
   box-shadow: 0 4px 20px rgba(102, 126, 234, 0.4);
   backdrop-filter: blur(10px);
   padding: 1.25rem 0 !important;
@@ -103,7 +105,7 @@ body {
    ============================================ */
 
 .hero-section {
-  background: var(--primary-gradient) !important;
+  background:url("./assets/images/farmers_market.jpg") center/cover no-repeat;
   border-radius: 30px !important;
   padding: 4rem 3rem !important;
   margin: 2rem 0 !important;
@@ -111,6 +113,17 @@ body {
   overflow: hidden;
   box-shadow: 0 25px 70px rgba(102, 126, 234, 0.4) !important;
   min-height: 500px;
+  color: white;
+}
+
+/* Background image overlay */
+.hero-bg-overlay {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  filter: blur(6px) brightness(0.6);
+  z-index: 1;
 }
 
 .hero-section::before {
@@ -845,4 +858,15 @@ html, body, #root { height: 100%; }
 }
 @media (max-width: 576px){
   .contact-illustration{ max-width: 100%; }
+}
+.search-bar input {
+  background: white;
+  border: 2px solid transparent;
+  border-radius: 50px;
+  box-shadow: 0 0 10px rgba(86, 171, 47, 0.3);
+}
+
+.search-bar input:focus {
+  box-shadow: 0 0 20px rgba(86, 171, 47, 0.6);
+  border-color: #56ab2f;
 }

@@ -1,42 +1,33 @@
-// src/components/Navbar.js
 import React from "react";
 import { Link } from "react-router-dom";
-import SearchComponent from "./ui/animated-glowing-search-bar"; // <-- import search bar
+import { ButtonColorful } from "./ui/button-colorful";
+import AnimatedGlowingSearchBar from "./ui/animated-glowing-search-bar"; // ✅ import your search bar
 
 function Navbar() {
   return (
-    <nav className="navbar navbar-expand-lg navbar-clean">
-      <div className="container d-flex align-items-center justify-content-between">
-        {/* Brand */}
-        <Link className="navbar-brand" to="/">
-          GroceryMart
-        </Link>
+    <nav className="navbar-clean px-4 py-3 flex items-center justify-between gap-6">
+      {/* Brand */}
+      <Link className="navbar-brand text-white text-2xl font-bold" to="/">
+        GroceryMart
+      </Link>
 
-        {/* Navbar links */}
-        <div className="d-flex align-items-center gap-4">
-          <Link className="nav-link" to="/">
-            Home
-          </Link>
-          <Link className="nav-link" to="/products">
-            Products
-          </Link>
-          <Link className="nav-link" to="/cart">
-            Cart
-          </Link>
-          <Link className="nav-link" to="/contact">
-            Contact
-          </Link>
+      {/* Nav Links */}
+      <div className="flex gap-6">
+        <Link className="text-white hover:underline" to="/">Home</Link>
+        <Link className="text-white hover:underline" to="/products">Products</Link>
+        <Link className="text-white hover:underline" to="/cart">Cart</Link>
+        <Link className="text-white hover:underline" to="/contact">Contact</Link>
+      </div>
 
-          {/* Search Bar (new!) */}
-          <div className="ms-3">
-            <SearchComponent />
-          </div>
+      {/* Your custom search bar */}
+      <div className="flex-grow max-w-md">
+        <AnimatedGlowingSearchBar />
+      </div>
 
-          {/* Login/Signup button */}
-          <Link className="btn btn-light ms-3" to="/login">
-            Login / Signup
-          </Link>
-        </div>
+      {/* Buttons */}
+      <div className="flex gap-3">
+        <ButtonColorful label="Login" />
+        <ButtonColorful label="Signup" />
       </div>
     </nav>
   );
